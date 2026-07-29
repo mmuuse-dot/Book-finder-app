@@ -1,11 +1,11 @@
-const API_URL = "https://www.googleapis.com/books/v1/volumes?q=";
-
 async function fetchBooks(query) {
     try {
         showLoading(true);
         clearError();
 
-        const response = await fetch(`${API_URL}${encodeURIComponent(query)}&maxResults=20`);
+        const response = await fetch(
+            `https://openlibrary.org/search.json?q=${encodeURIComponent(query)}`
+        );
 
         if (!response.ok) {
             throw new Error("Failed to fetch books.");
@@ -15,11 +15,12 @@ async function fetchBooks(query) {
 
         showLoading(false);
 
-        return data.items || [];
+        return data.docs || [];
 
     } catch (error) {
         showLoading(false);
         showError(error.message);
+        console.error(error);
         return [];
     }
 }
