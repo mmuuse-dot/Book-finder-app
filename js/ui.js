@@ -23,7 +23,6 @@ function displayBooks(books) {
         const year = book.first_publish_year || "Unknown";
 
         const card = document.createElement("div");
-
         card.className = "book-card";
 
         card.innerHTML = `
@@ -38,13 +37,24 @@ function displayBooks(books) {
                 <p><strong>Published:</strong> ${year}</p>
 
                 <div class="book-buttons">
+
                     <a href="https://openlibrary.org${book.key}" target="_blank">
                         View Book
                     </a>
+
+                    <button class="favorite-btn">
+                        ⭐ Favorite
+                    </button>
+
                 </div>
 
             </div>
         `;
+
+        // Favorite button event
+        card.querySelector(".favorite-btn").addEventListener("click", () => {
+            saveFavorite(book);
+        });
 
         container.appendChild(card);
 
