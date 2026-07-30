@@ -1,40 +1,15 @@
-const searchBtn = document.getElementById("searchBtn");
+@media(max-width:768px){
 
-const searchInput = document.getElementById("searchInput");
-
-searchBtn.addEventListener("click", searchBooks);
-
-searchInput.addEventListener("keypress", function(event){
-
-    if(event.key === "Enter"){
-        searchBooks();
-    }
-
-});
-
-async function searchBooks(){
-
-    const query = searchInput.value.trim();
-
-    if(query === ""){
-
-        showError("Please enter a book title or author.");
-
-        return;
-
-    }
-
-    const books = await fetchBooks(query);
-
-    displayBooks(books);
-
+.search-section{
+    flex-direction:column;
 }
 
-// Load some books when the page opens
-window.addEventListener("load", async () => {
+.filters{
+    flex-direction:column;
+}
 
-    const books = await fetchBooks("programming");
+.book-card img{
+    height:280px;
+}
 
-    displayBooks(books);
-
-});
+}
