@@ -21,13 +21,15 @@ The goal of this application is to make book discovery faster, easier, and more 
 🌐 Live application:
 
 ```
-Add your deployed URL here
+https://52.23.163.118/ 
 ```
 
 🎥 Demo video:
 
 ```
-Add your demo video link here
+https://youtu.be/KFnaV_9x8XQ
+
+
 ```
 
 ---
